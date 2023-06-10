@@ -104,14 +104,25 @@ public class ProductManager {
     public List<Product> getActiveProductsSortedByPrice() {
         // ProductStatus'ü ACTIVE olan ürünleri fiyatlarına göre sıralayıp döndüren metodu yazın
         String productStatus = "ACTIVE";
-        return products.values().stream().filter(product -> productStatus.equals(product.getProductStatus().name())).sorted((product1, product2) -> (int) (product1.getPrice() - product2.getPrice())).toList();
+        return products
+                .values()
+                .stream()
+                .filter(product -> productStatus.equals(product.getProductStatus().name()))
+                .sorted((product1, product2) -> (int) (product1.getPrice() - product2.getPrice()))
+                .toList();
     }
 
     public double calculateAveragePriceInCategory(String category) {
         // String olarak verilen category'e ait olan ürünlerin fiyatlarının ortalamasını yoksa 0.0 döndüren metodu yazın
         // tip: OptionalDouble kullanımını inceleyin.
 
-        return products.values().stream().filter(product -> category.equals(product.getCategory())).mapToDouble(Product::getPrice).average().orElse(0.0);
+        return products
+                .values()
+                .stream()
+                .filter(product -> category.equals(product.getCategory()))
+                .mapToDouble(Product::getPrice)
+                .average()
+                .orElse(0.0);
     }
 
     public Map<String, Double> getCategoryPriceSum() {

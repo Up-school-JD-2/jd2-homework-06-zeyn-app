@@ -18,6 +18,8 @@ public class Main {
         manager.addProduct(new Product("5", "Product 5", 10, 7.99, "Category 1", ProductStatus.ACTIVE));
         manager.addProduct(new Product("6", "Product 6", 5, 4.99, "Category 2", ProductStatus.ACTIVE));
 
+        System.out.println("******************************************");
+        System.out.println(manager.getCategoryPriceSum());
 
     // ORD-122
     manager.registerOrderNumberSupplier("supplier-1", () -> {
@@ -81,8 +83,8 @@ public class Main {
         System.out.println("Average Price of Category 1: " + manager.calculateAveragePriceInCategory("Category 1"));
         System.out.println("Average Price of Category 2: " + manager.calculateAveragePriceInCategory("Category 2"));
         System.out.println("Average Price of Category 3: " + manager.calculateAveragePriceInCategory("Category 3"));
+
         System.out.println("******************************************");
         System.out.println(manager.getCategoryPriceSum());
-
     }
 }
